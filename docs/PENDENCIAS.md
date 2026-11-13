@@ -22,6 +22,7 @@ Base: *Revisão de produto v1.1 — Contabilidade digital para médicos PJ e pro
 - [ ] Comparação nominal com concorrentes ficou de fora; decidir com o jurídico se entra.
 - [ ] "Contador registrado no CRC" aparece na faixa de confiança: só publicar com o parceiro já contratado e regularizado.
 - [ ] Definir a marca e decidir se a paleta segue o verde-petróleo atual ou o azul-marinho + verde sugerido pelo `ui-ux-pro-max` (ver `docs/auditorias/`).
+- [ ] **Escolher a página principal:** landing clara (`index.html`) ou portal escuro (`portal.html`). As duas compartilham calculadora e formulário; a outra pode ser removida ou usada em teste A/B.
 - [ ] Analytics ou pixel só depois de banner de consentimento (LGPD).
 
 ## Próximos passos da revisão (dias 1 a 15)

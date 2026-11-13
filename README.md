@@ -4,6 +4,7 @@ Landing page de captação para a contabilidade digital de **médicos PJ e progr
 
 - Calculadora de economia (Fator R e exportação de serviços) que roda só no navegador.
 - Formulário de pré-venda com validação acessível, consentimento LGPD e campo isca contra robôs.
+- Duas versões visuais: landing clara (`src/index.html`) e portal corporativo escuro (`src/portal.html`, em http://localhost:4173/portal.html).
 - HTML, CSS e JS estáticos, sem build e sem dependências: pode ir para qualquer hospedagem estática (Netlify, Vercel, Cloudflare Pages, GitHub Pages) publicando a pasta `src/`.
 
 ```bash
