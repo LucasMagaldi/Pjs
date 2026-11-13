@@ -1,0 +1,224 @@
+/*
+ * Estilo Piccow aplicado à landing (carregado depois de styles.css).
+ * Ativo com <html data-estilo="piccow">; sem o atributo, vale o visual anterior.
+ *
+ * Fontes do pedido: theme.css / variables.css / tokens.json (estrutura, nomes e
+ * escalas dos tokens), ui.tsx (componentes) e TEMA_APP.md (opção B: navegação
+ * escura + um cartão escuro por tela). As CORES seguem o Piccow atual (verde,
+ * docs/design/MARCA.md), não as do Dub presentes no tokens.json, que o próprio
+ * Piccow marcou como referência sem validade para cores.
+ *
+ * Contrastes medidos:
+ *   charcoal #10261C sobre #EEF4F0 14,3:1 · steel #4D6158 5,95:1 · fog #586B62 5,1:1
+ *   eyebrow/green-ink #145C3B 7,2:1 · ação #1A7A50 4,8:1 · branco sobre ação 5,3:1
+ *   verde da marca #1E8A5A 3,9:1: só em títulos grandes (.accent)
+ *   borda de campo #7E9A8B 3,05:1 sobre branco (campos sempre com fundo branco)
+ *   navegação: #C9DDD2 sobre #123A2E 8,8:1 · cartão escuro (ponto mais claro
+ *   #145C3B): branco 8,0:1, #C9DDD2 5,6:1, menta #9FF0C2 6,0:1, branco a 70% 4,8:1
+ */
+
+/* ---------- Fontes (OFL, servidas pela própria página) ---------- */
+@font-face { font-family: "Figtree"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/figtree-600.woff2") format("woff2"); }
+@font-face { font-family: "Geist"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/geist-400.woff2") format("woff2"); }
+@font-face { font-family: "Geist"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/geist-500.woff2") format("woff2"); }
+@font-face { font-family: "Geist"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/geist-600.woff2") format("woff2"); }
+
+/* ---------- Tokens Piccow (mesmos nomes do theme.css) ---------- */
+:root[data-estilo="piccow"] {
+  color-scheme: light;
+
+  --color-canvas-white: #f6faf7;
+  --color-paper-mist: #edf4ef;
+  --color-card: #ffffff;
+  --color-app: #eef4f0;
+  --color-ash: #dbe8e0;
+  --color-smoke: #c6d9ce;
+  --color-pebble: #aec6b8;
+  --color-outline: #aec6b8;
+  --color-campo: #7e9a8b;
+  --color-midnight-ink: #10261c;
+  --color-charcoal: #10261c;
+  --color-graphite: #173326;
+  --color-slate: #24433a;
+  --color-steel: #4d6158;
+  --color-fog: #586b62;
+  --color-silver: #93a69c;
+  --color-electric-blue: #1e8a5a; /* verde da marca (nome histórico) */
+  --color-deep-sapphire: #176b44; /* hover da ação */
+  --color-primary-action-fill: #1a7a50;
+  --color-soft-mint: #e3f2ea;
+  --color-mint-line: #a6d3bc;
+  --color-green-ink: #145c3b;
+  --color-tangerine: #b4473c;
+  --color-tangerine-wash: #fbe9e5;
+  --color-amber-wash: #fdf1dc;
+  --color-amber-line: #f0cc8a;
+  --color-amber-ink: #8a5508;
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Figtree", "Geist", ui-sans-serif, system-ui, sans-serif;
+
+  --text-caption: 11px;
+  --text-body: 14px;
+  --text-body-lg: 16px;
+  --text-body-xl: 18px;
+  --text-subheading: 20px;
+  --text-heading-sm: 24px;
+  --text-heading: 30px;
+  --text-heading-lg: 36px;
+  --text-display: 48px;
+
+  --radius-tags: 9999px;
+  --radius-cards: 16px;
+  --radius-largecards: 16px;
+  --radius-buttons: 6px;
+  --radius-inputs: 6px;
+
+  --shadow-subtle: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  --shadow-ring: rgba(16, 38, 28, 0.1) 0px 12px 32px -12px;
+  --shadow-glow: rgba(30, 138, 90, 0.3) 0px 16px 40px -16px;
+
+  /* Tokens semânticos da landing apontando para os do Piccow */
+  --cor-fundo: var(--color-app);
+  --cor-fundo-suave: var(--color-paper-mist);
+  --cor-superficie: var(--color-card);
+  --cor-texto: var(--color-charcoal);
+  --cor-texto-suave: var(--color-steel);
+  --cor-texto-nota: var(--color-fog);
+  --cor-borda: var(--color-ash);
+  --cor-borda-forte: var(--color-smoke);
+  --cor-borda-campo: var(--color-campo);
+  --cor-marca: var(--color-primary-action-fill);
+  --cor-marca-hover: var(--color-deep-sapphire);
+  --cor-marca-suave: var(--color-soft-mint);
+  --cor-sobre-marca: #ffffff;
+  --cor-positivo: var(--color-green-ink);
+  --cor-aviso-fundo: var(--color-amber-wash);
+  --cor-aviso-texto: var(--color-amber-ink);
+  --cor-erro: var(--color-tangerine);
+  --cor-foco: var(--color-electric-blue);
+  /* sem faixa escura de seção: o único bloco escuro de conteúdo é o .hero-dark */
+  --cor-faixa-fundo: var(--color-paper-mist);
+  --cor-faixa-texto: var(--color-charcoal);
+  --cor-faixa-texto-suave: var(--color-steel);
+  --cor-faixa-link: var(--color-primary-action-fill);
+
+  --fonte: var(--font-sans);
+  --raio: var(--radius-cards);
+  --raio-pequeno: var(--radius-inputs);
+  --sombra: var(--shadow-subtle);
+}
+
+/* ---------- Base ---------- */
+[data-estilo="piccow"] body {
+  background:
+    radial-gradient(48rem 32rem at 100% 0%, color-mix(in srgb, var(--color-electric-blue) 10%, transparent), transparent 70%)
+    var(--color-app) no-repeat;
+}
+[data-estilo="piccow"] :focus-visible { outline: 2px solid var(--color-electric-blue); outline-offset: 2px; }
+[data-estilo="piccow"] h1,
+[data-estilo="piccow"] h2,
+[data-estilo="piccow"] h3,
+[data-estilo="piccow"] .display { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; }
+[data-estilo="piccow"] h1 { font-size: clamp(2rem, 4.4vw, var(--text-display)); line-height: 1.1; }
+[data-estilo="piccow"] h3 { font-size: var(--text-subheading); }
+/* palavra de destaque: verde da marca, só em títulos grandes (3,9:1) */
+[data-estilo="piccow"] .accent { color: var(--color-electric-blue); }
+/* .eyebrow do Piccow */
+[data-estilo="piccow"] .sobretitulo {
+  color: var(--color-green-ink); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+}
+[data-estilo="piccow"] .hero { background: transparent; }
+
+/* ---------- Navegação escura (.nav-dark, opção B) ---------- */
+.nav-dark {
+  --cor-texto: #ffffff;
+  --cor-texto-suave: #c9ddd2;
+  background: linear-gradient(180deg, #0e2c23 0%, #123a2e 100%);
+  border-bottom-color: transparent;
+  color: var(--cor-texto);
+}
+[data-estilo="piccow"] .topo.nav-dark { backdrop-filter: none; }
+.nav-dark .marca { color: #ffffff; }
+.nav-dark .marca__icone { background: #9ff0c2; color: #0e2c23; }
+.nav-dark .menu a { color: #c9ddd2; }
+.nav-dark .menu a:hover { color: #ffffff; }
+.nav-dark :focus-visible { outline-color: #9ff0c2; }
+
+/* ---------- Botões (ui.tsx: primary / secondary) ---------- */
+[data-estilo="piccow"] .botao {
+  border-radius: var(--radius-buttons); min-height: 44px; padding: 10px 18px; font-weight: 500; font-size: 1rem;
+}
+[data-estilo="piccow"] .botao--pequeno { min-height: 40px; padding: 8px 14px; font-size: var(--text-body); }
+[data-estilo="piccow"] .botao--secundario {
+  background: #ffffff; border: 1px solid var(--color-outline); color: var(--color-slate);
+}
+[data-estilo="piccow"] .botao--secundario:hover { background: var(--color-paper-mist); color: var(--color-charcoal); }
+/* botão principal sobre fundo escuro: contorno claro para não sumir (1,5:1 sem ele) */
+.nav-dark .botao:not(.botao--secundario),
+.hero-dark .botao:not(.botao--secundario) { box-shadow: 0 0 0 1px rgb(255 255 255 / 0.35); }
+
+/* ---------- Cards e campos (Panel / Field / inputClass) ---------- */
+[data-estilo="piccow"] .cartao { border-radius: var(--radius-cards); border: 1px solid var(--color-ash); box-shadow: var(--shadow-subtle); }
+[data-estilo="piccow"] .cartao--destaque { box-shadow: var(--shadow-ring); }
+[data-estilo="piccow"] input[type="text"],
+[data-estilo="piccow"] input[type="email"],
+[data-estilo="piccow"] input[type="tel"],
+[data-estilo="piccow"] select { border-radius: var(--radius-inputs); border-width: 1px; background: #ffffff; min-height: 46px; }
+[data-estilo="piccow"] input:focus-visible,
+[data-estilo="piccow"] select:focus-visible { border-color: var(--color-electric-blue); }
+[data-estilo="piccow"] .campo label,
+[data-estilo="piccow"] .campo legend { font-size: 13px; font-weight: 500; color: var(--cor-texto-suave); }
+[data-estilo="piccow"] .campo .opcao,
+[data-estilo="piccow"] .opcao { border-radius: var(--radius-inputs); border-width: 1px; background: #ffffff; }
+[data-estilo="piccow"] .opcao:has(input:checked) { background: var(--color-soft-mint); border-color: var(--color-primary-action-fill); }
+[data-estilo="piccow"] .campo .opcao--consentimento { background: transparent; }
+[data-estilo="piccow"] .ajuda { font-size: 13px; }
+[data-estilo="piccow"] .erro { font-size: 13px; font-weight: 500; }
+
+/* ---------- Badge (selo do plano) e avisos (Notice) ---------- */
+[data-estilo="piccow"] .selo {
+  border: 1px solid var(--color-mint-line); background: var(--color-soft-mint); color: var(--color-green-ink);
+  font-size: var(--text-caption); font-weight: 600; letter-spacing: 0; padding: 2px 10px;
+}
+[data-estilo="piccow"] .aviso { border: 1px solid var(--color-amber-line); border-radius: var(--radius-cards); padding: 14px 16px; }
+[data-estilo="piccow"] .plano--destaque { border: 2px solid var(--color-primary-action-fill); }
+[data-estilo="piccow"] .plano__preco { font-family: var(--font-display); }
+[data-estilo="piccow"] .icone,
+[data-estilo="piccow"] .passos li::before { border-radius: 12px; }
+[data-estilo="piccow"] .confianca { background: #ffffff; }
+[data-estilo="piccow"] .confianca svg { color: var(--color-electric-blue); }
+[data-estilo="piccow"] .perguntas summary { font-family: var(--font-display); font-weight: 600; }
+[data-estilo="piccow"] .rodape { background: var(--color-paper-mist); }
+
+/* ---------- Cartão escuro (.hero-dark): um por tela, só a resposta principal ---------- */
+.hero-dark {
+  --cor-texto: #ffffff;
+  --cor-texto-suave: #c9ddd2;
+  --cor-texto-nota: #c9ddd2;
+  --cor-borda: rgb(255 255 255 / 0.14);
+  --cor-positivo: #9ff0c2;
+  position: relative; overflow: hidden; color: var(--cor-texto);
+  background:
+    radial-gradient(28rem 14rem at 0% 0%, rgb(159 240 194 / 0.18), transparent 70%),
+    linear-gradient(135deg, #0f3b2e 0%, #145c3b 100%);
+  border: 0;
+  box-shadow: 0 18px 40px -20px rgb(11 59 44 / 0.7);
+}
+[data-estilo="piccow"] .cartao.hero-dark { border: 0; box-shadow: 0 18px 40px -20px rgb(11 59 44 / 0.7); }
+/* anel decorativo no canto */
+.hero-dark::after {
+  content: ""; position: absolute; top: -90px; right: -90px; width: 220px; height: 220px; border-radius: 50%;
+  border: 28px solid rgb(159 240 194 / 0.08); pointer-events: none;
+}
+.hero-dark > * { position: relative; z-index: 1; }
+.hero-dark .tabela__total td:last-child { color: #9ff0c2; }
+/* superfícies claras dentro do cartão escuro voltam ao tema claro */
+.hero-dark .aviso { --cor-texto: var(--color-charcoal); }
+.hero-dark .aviso strong { color: var(--color-amber-ink); }
+.hero-dark .nota { color: #c9ddd2; }
+.hero-dark :focus-visible { outline-color: #9ff0c2; }
+
+/* rótulo do campo é 13px (ui.tsx), mas o texto das opções segue no tamanho do corpo */
+[data-estilo="piccow"] .campo .opcao { font-size: 1rem; color: var(--cor-texto); }
+[data-estilo="piccow"] .calc__resultado .botao { margin-bottom: 16px; }

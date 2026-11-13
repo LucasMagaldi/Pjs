@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-estilo="piccow">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,15 +11,18 @@
   <meta property="og:description" content="Fator R acompanhado todo mês, certificado A1 incluso e WhatsApp com contador que conhece a sua profissão. A partir de R$ 179/mês.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
-  <meta name="theme-color" content="#0b5d57">
+  <meta name="theme-color" content="#0e2c23">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b5d57'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EPJ%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/figtree-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/piccow.css">
   <script type="module" src="assets/app.js"></script>
 </head>
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-  <header class="topo">
+  <header class="topo nav-dark">
     <div class="container topo__linha">
       <a class="marca" href="#" aria-label="Contábil PJ, início">
         <span class="marca__icone" aria-hidden="true">PJ</span>
@@ -42,7 +45,7 @@
       <div class="container hero__grade">
         <div>
           <p class="sobretitulo">Contabilidade digital para médicos PJ e programadores PJ</p>
-          <h1 id="hero-titulo">Pare de pagar 15,5% de imposto quando a sua profissão permite 6%.</h1>
+          <h1 id="hero-titulo">Pare de pagar 15,5% de imposto quando a sua profissão permite <span class="accent">6%</span>.</h1>
           <p class="hero__texto">
             O <strong>Fator R</strong> decide se a sua empresa paga a alíquota inicial do Anexo III (6%) ou a do Anexo V (15,5%).
             A gente acompanha o seu todo mês, com revisão de um contador, e mostra em reais quanto você deixou de pagar.
@@ -187,7 +190,7 @@
             </div>
           </form>
 
-          <div class="calc__resultado cartao" aria-live="polite" id="calc-resultado">
+          <div class="calc__resultado cartao hero-dark" aria-live="polite" id="calc-resultado">
             <p class="cartao__rotulo">Economia estimada</p>
             <p class="calc__valor"><span id="res-anual">R$ 0</span><small> por ano</small></p>
             <p class="calc__mensal"><span id="res-mensal">R$ 0</span> por mês</p>
