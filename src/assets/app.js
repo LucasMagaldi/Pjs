@@ -79,6 +79,15 @@ function iniciarCalculadora() {
   exterior.addEventListener('input', atualizar);
   form.addEventListener('submit', (e) => e.preventDefault());
 
+  // Links "Simular para ..." já abrem a calculadora no perfil certo.
+  document.querySelectorAll('[data-perfil]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const radio = form.querySelector(`input[name="profissao"][value="${link.dataset.perfil}"]`);
+      if (radio) radio.checked = true;
+      atualizar();
+    });
+  });
+
   $('calc-cta').addEventListener('click', () => {
     preencherLead({ plano: planoSugerido, profissao: form.elements.profissao.value, faturamento: lerValor(faturamento.value) });
   });
@@ -170,6 +179,7 @@ function iniciarFormulario() {
   if (!form) return;
   const status = $('lead-status');
   const botao = $('lead-enviar');
+  const rotuloEnviar = botao.textContent.trim();
   const disponivel = /^https:\/\//.test(LEAD_ENDPOINT);
 
   if (!disponivel) {
@@ -230,7 +240,7 @@ function iniciarFormulario() {
       status.dataset.tipo = 'erro';
       status.textContent = 'Não conseguimos enviar agora. Verifique a sua conexão e tente de novo em alguns minutos.';
       botao.disabled = false;
-      botao.textContent = 'Quero ser contatado';
+      botao.textContent = rotuloEnviar;
     }
   });
 }
