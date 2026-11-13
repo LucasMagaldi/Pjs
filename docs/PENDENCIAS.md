@@ -20,6 +20,8 @@ Base: *Revisão de produto v1.1 — Contabilidade digital para médicos PJ e pro
 - [ ] **Hospedagem:** enviar a CSP e `frame-ancestors 'none'` como cabeçalho HTTP (no `<meta>` o navegador ignora `frame-ancestors`).
 - [ ] Confirmar o pró-labore mínimo de referência (R$ 1.600) e a faixa de isenção de IR usados na calculadora.
 - [ ] Comparação nominal com concorrentes ficou de fora; decidir com o jurídico se entra.
+- [ ] "Contador registrado no CRC" aparece na faixa de confiança: só publicar com o parceiro já contratado e regularizado.
+- [ ] Definir a marca e decidir se a paleta segue o verde-petróleo atual ou o azul-marinho + verde sugerido pelo `ui-ux-pro-max` (ver `docs/auditorias/`).
 - [ ] Analytics ou pixel só depois de banner de consentimento (LGPD).
 
 ## Próximos passos da revisão (dias 1 a 15)
