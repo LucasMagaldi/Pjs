@@ -58,7 +58,7 @@
           </div>
         </div>
 
-        <aside class="cartao cartao--destaque" aria-labelledby="exemplo-titulo">
+        <div class="cartao cartao--destaque" role="group" aria-labelledby="exemplo-titulo">
           <p class="cartao__rotulo">Exemplo</p>
           <h2 id="exemplo-titulo" class="cartao__titulo">Médico PJ faturando R$ 15 mil por mês</h2>
           <dl class="comparativo">
@@ -75,7 +75,31 @@
             <strong>≈ R$ 13,7 mil por ano</strong> a menos, mais de seis vezes a mensalidade.
           </p>
           <p class="nota">Simulação ilustrativa: DAS + INSS de 11% sobre o pró-labore, 1ª faixa do Simples Nacional.</p>
-        </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIANÇA: só fatos verificáveis, sem logos ou depoimentos inventados -->
+    <section class="confianca" aria-label="Por que confiar">
+      <div class="container">
+        <ul>
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span><strong>Contador registrado no CRC</strong>Escritório parceiro responsável técnico pela sua contabilidade.</span>
+          </li>
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            <span><strong>Preço publicado</strong>Planos e serviços extras com valor na página.</span>
+          </li>
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
+            <span><strong>Sem fidelidade</strong>Cancele quando quiser, sem multa.</span>
+          </li>
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+            <span><strong>Contas abertas</strong>Simulações com as alíquotas da LC 123/2006.</span>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -171,7 +195,7 @@
             <table class="tabela">
               <caption class="sr-only">Tributos mensais estimados em cada cenário</caption>
               <thead>
-                <tr><th scope="col">Por mês</th><th scope="col">Contador genérico</th><th scope="col">Com a gente</th></tr>
+                <tr><th scope="col">Por mês</th><th scope="col">Sem planejamento</th><th scope="col">Com a gente</th></tr>
               </thead>
               <tbody>
                 <tr><th scope="row">DAS</th><td id="res-das-g"></td><td id="res-das-e"></td></tr>
@@ -285,7 +309,7 @@
         </div>
 
         <form class="cartao formulario" id="form-lead" novalidate aria-describedby="form-lead-obrigatorio">
-          <p class="ajuda" id="form-lead-obrigatorio">Todos os campos são obrigatórios, exceto quando indicado.</p>
+          <p class="ajuda formulario__nota" id="form-lead-obrigatorio">Todos os campos são obrigatórios.</p>
 
           <div class="aviso aviso--indisponivel" id="lead-indisponivel" role="status" hidden>
             <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
