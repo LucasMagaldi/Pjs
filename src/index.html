@@ -6,18 +6,20 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https:; form-action 'self' https:; base-uri 'self'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Contábil PJ | Contabilidade para médicos e programadores PJ</title>
-  <meta name="description" content="Contabilidade digital especializada para médicos PJ e programadores PJ. Fator R acompanhado todo mês, certificado A1 incluso e um resumo mensal com quanto você economizou. A partir de R$ 179/mês, sem fidelidade.">
-  <meta property="og:title" content="Contábil PJ | Contabilidade para médicos e programadores PJ">
+  <meta name="description" content="Contabilidade digital para médicos PJ e programadores PJ. Fator R acompanhado todo mês, certificado A1 incluso e um resumo mensal com quanto você economizou. A partir de R$ 179/mês, sem fidelidade.">
+  <meta property="og:title" content="Contábil PJ | Imposto de PJ, sem susto">
   <meta property="og:description" content="Fator R acompanhado todo mês, certificado A1 incluso e WhatsApp com contador que conhece a sua profissão. A partir de R$ 179/mês.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta name="theme-color" content="#0e2c23">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b5d57'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EPJ%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a7a50'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EPJ%3C/text%3E%3C/svg%3E">
   <link rel="preload" href="assets/fonts/geist-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="stylesheet" href="assets/piccow.css">
+  <link rel="stylesheet" href="assets/layout.css">
   <script type="module" src="assets/app.js"></script>
+  <script type="module" src="assets/animacoes.js"></script>
 </head>
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -30,6 +32,7 @@
       </a>
       <nav aria-label="Principal">
         <ul class="menu">
+          <li><a href="#fator-r">Fator R</a></li>
           <li><a href="#calculadora">Calculadora</a></li>
           <li><a href="#planos">Planos</a></li>
           <li><a href="#perguntas">Dúvidas</a></li>
@@ -40,125 +43,217 @@
   </header>
 
   <main id="conteudo">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-titulo">
-      <div class="container hero__grade">
-        <div>
-          <p class="sobretitulo">Contabilidade digital para médicos PJ e programadores PJ</p>
-          <h1 id="hero-titulo">Pare de pagar 15,5% de imposto quando a sua profissão permite <span class="accent">6%</span>.</h1>
-          <p class="hero__texto">
-            O <strong>Fator R</strong> decide se a sua empresa paga a alíquota inicial do Anexo III (6%) ou a do Anexo V (15,5%).
-            A gente acompanha o seu todo mês, com revisão de um contador, e mostra em reais quanto você deixou de pagar.
-          </p>
-          <ul class="hero__lista">
-            <li>Certificado digital A1 incluso</li>
-            <li>WhatsApp com primeira resposta em 1 dia útil</li>
-            <li>Sem fidelidade: cancele quando quiser</li>
-          </ul>
-          <div class="hero__acoes">
-            <a class="botao" href="#calculadora">Calcular minha economia</a>
-            <a class="botao botao--secundario" href="#planos">Ver planos a partir de R$ 179</a>
+    <!-- 1. HERO: título curto e grande + celular com o alerta do Fator R -->
+    <section class="l-hero" aria-labelledby="hero-titulo">
+      <div class="container l-hero__texto">
+        <p class="sobretitulo">Contabilidade para médicos e programadores PJ</p>
+        <h1 id="hero-titulo" class="l-titulo-gigante">Imposto de PJ, sem <span class="accent">susto</span>.</h1>
+        <p class="l-hero__sub">Acompanhamos o seu Fator R todo mês, com revisão de um contador, e mostramos em reais quanto você deixou de pagar.</p>
+        <div class="l-hero__acoes">
+          <a class="botao" href="#calculadora">Calcular minha economia</a>
+          <a class="botao botao--secundario" href="#planos">Ver planos a partir de R$ 179</a>
+        </div>
+        <p class="l-hero__selo">Sem fidelidade · Certificado A1 incluso · Contador registrado no CRC</p>
+      </div>
+
+      <figure class="l-hero__tela" data-anima>
+        <div class="celular" role="img" aria-label="Prévia do app: o Fator R projetado de 22,4% gera um alerta com o pró-labore sugerido; depois da aprovação, o Fator R vai a 29,1% e a empresa fica no Anexo III, com 6% de alíquota.">
+          <div class="celular__tela" aria-hidden="true">
+            <div class="celular__topo"><span>9:41</span><span class="celular__ilha"></span><span>5G</span></div>
+            <p class="app-eyebrow">Novembro</p>
+            <p class="app-titulo">Fator R</p>
+            <div class="fator" data-fator data-estado="0">
+              <div class="fator__numero"><span data-fator-valor>22,4</span><small>%</small></div>
+              <div class="fator__trilho"><span class="fator__barra"></span><span class="fator__limite"><b>28%</b></span></div>
+              <div class="fator__chips">
+                <span class="chip chip--alerta fator__so-0">Anexo V · 15,5%</span>
+                <span class="chip chip--alerta fator__so-1">Anexo V · 15,5%</span>
+                <span class="chip chip--ok fator__so-2">Anexo III · 6%</span>
+              </div>
+              <div class="fator__painel fator__so-0">
+                <p class="app-rotulo">Projeção abaixo de 30%</p>
+                <p class="app-texto">Ajuste o pró-labore para continuar no Anexo III.</p>
+              </div>
+              <div class="fator__painel fator__so-1">
+                <p class="app-rotulo">Sugestão do contador</p>
+                <dl class="app-lista">
+                  <div><dt>Pró-labore</dt><dd>R$ 4.200</dd></div>
+                  <div><dt>INSS a mais</dt><dd>R$ 286</dd></div>
+                  <div><dt>Economia</dt><dd class="app-positivo">R$ 1.139/mês</dd></div>
+                </dl>
+                <span class="app-botao">Aprovar</span>
+              </div>
+              <div class="fator__painel fator__painel--ok fator__so-2">
+                <p class="app-rotulo">Aprovado. Lançado no eSocial.</p>
+                <p class="app-texto">Você ficou no Anexo III este mês.</p>
+              </div>
+            </div>
           </div>
         </div>
+        <figcaption class="l-legenda">Prévia ilustrativa do app · exemplo de médico PJ com R$ 15 mil por mês</figcaption>
+      </figure>
+    </section>
 
-        <div class="cartao cartao--destaque" role="group" aria-labelledby="exemplo-titulo">
-          <p class="cartao__rotulo">Exemplo</p>
-          <h2 id="exemplo-titulo" class="cartao__titulo">Médico PJ faturando R$ 15 mil por mês</h2>
-          <dl class="comparativo">
-            <div>
-              <dt>Anexo V, sem Fator R</dt>
-              <dd>R$ 2.501<span>/mês em tributos</span></dd>
+    <!-- 2. TELA GRANDE: painel no navegador + celular sobreposto -->
+    <section class="l-vitrine" aria-label="Prévia do painel">
+      <div class="container">
+        <figure class="vitrine" data-anima>
+          <div class="navegador" role="img" aria-label="Prévia do painel no computador: economia de R$ 1.139 em novembro, Fator R de 29,1%, DAS de R$ 900 e os próximos vencimentos.">
+            <div class="navegador__barra" aria-hidden="true"><i></i><i></i><i></i><span class="navegador__url">app.contabilpj.com.br/painel</span></div>
+            <div class="painel" aria-hidden="true">
+              <aside class="painel__lado nav-dark">
+                <span class="marca__icone">PJ</span>
+                <span class="painel__item painel__item--ativo">Início</span>
+                <span class="painel__item">Notas</span>
+                <span class="painel__item">Impostos</span>
+                <span class="painel__item">Documentos</span>
+              </aside>
+              <div class="painel__conteudo">
+                <p class="app-eyebrow">Bom dia, Dra. Ana</p>
+                <p class="app-titulo">Novembro de 2026</p>
+                <div class="painel__grade">
+                  <div class="hero-dark painel__resumo">
+                    <p class="app-rotulo">Economia no mês</p>
+                    <p class="painel__valor">R$ <span data-conta="1139">1.139</span></p>
+                    <p class="app-texto">Ficando no Anexo III em vez do V</p>
+                    <svg class="painel__grafico" viewBox="0 0 220 60" preserveAspectRatio="none"><path d="M0 50 C30 48 40 30 70 34 S110 18 140 22 S190 6 220 8"/></svg>
+                  </div>
+                  <div class="app-card">
+                    <p class="app-rotulo">Fator R</p>
+                    <p class="painel__numero"><span data-conta="29.1" data-casas="1">29,1</span>%</p>
+                    <span class="chip chip--ok">Anexo III</span>
+                  </div>
+                  <div class="app-card">
+                    <p class="app-rotulo">DAS de novembro</p>
+                    <p class="painel__numero">R$ <span data-conta="900">900</span></p>
+                    <span class="chip">Vence dia 20</span>
+                  </div>
+                  <div class="app-card painel__largo">
+                    <p class="app-rotulo">Próximos passos</p>
+                    <ul class="painel__lista">
+                      <li><span>Pró-labore aprovado</span><span class="chip chip--ok">Feito</span></li>
+                      <li><span>DAS gerado</span><span class="chip">Dia 20</span></li>
+                      <li><span>Certificado A1</span><span class="chip">Vale até 03/2027</span></li>
+                    </ul>
+                  </div>
+                  <div class="app-card painel__barras">
+                    <p class="app-rotulo">Imposto por mês</p>
+                    <div class="barras"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <dt>Anexo III, com Fator R</dt>
-              <dd class="comparativo__bom">R$ 1.362<span>/mês em tributos</span></dd>
+          </div>
+          <div class="celular celular--mini" aria-hidden="true">
+            <div class="celular__tela">
+              <div class="celular__topo"><span>9:41</span><span class="celular__ilha"></span><span>5G</span></div>
+              <p class="app-titulo">Resumo</p>
+              <div class="hero-dark mini-resumo">
+                <p class="app-rotulo">Você economizou</p>
+                <p class="painel__valor">R$ 13,7 mil</p>
+                <p class="app-texto">nos últimos 12 meses</p>
+              </div>
+              <div class="app-card"><p class="app-rotulo">Nota emitida</p><p class="app-texto">Clínica São Lucas · R$ 15.000</p></div>
             </div>
-          </dl>
-          <p class="cartao__economia">
-            <strong>≈ R$ 13,7 mil por ano</strong> a menos, mais de seis vezes a mensalidade.
-          </p>
-          <p class="nota">Simulação ilustrativa: DAS + INSS de 11% sobre o pró-labore, 1ª faixa do Simples Nacional.</p>
+          </div>
+          <figcaption class="l-legenda">Prévia ilustrativa do painel. O app está em desenvolvimento para a primeira turma de clientes.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 3. RECURSO: Fator R (cartões empilhados + texto) -->
+    <section class="l-recurso" id="fator-r" aria-labelledby="fator-r-titulo">
+      <div class="container l-recurso__grade">
+        <figure class="pilha" data-anima role="img" aria-label="Prévia dos alertas mensais: outubro com Fator R de 29,4%, novembro projetado em 27,2% com ajuste sugerido e dezembro aprovado em 28,6%.">
+          <div class="pilha__card" aria-hidden="true"><div><p class="app-rotulo">Outubro</p><p class="pilha__valor">29,4%</p></div><span class="chip chip--ok">Anexo III</span></div>
+          <div class="pilha__card" aria-hidden="true"><div><p class="app-rotulo">Novembro · projeção</p><p class="pilha__valor">27,2%</p></div><span class="chip chip--alerta">Ajustar pró-labore</span></div>
+          <div class="pilha__card" aria-hidden="true"><div><p class="app-rotulo">Novembro · aprovado</p><p class="pilha__valor">28,6%</p></div><span class="chip chip--ok">Anexo III</span></div>
+          <div class="pilha__card" aria-hidden="true"><div><p class="app-rotulo">Resumo do mês</p><p class="pilha__valor app-positivo">− R$ 1.139</p></div><span class="chip">em imposto</span></div>
+        </figure>
+        <div class="l-recurso__texto">
+          <span class="l-icone" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg></span>
+          <h2 id="fator-r-titulo" class="l-titulo">O Fator R acompanhado todo mês.</h2>
+          <ul class="l-pilulas" aria-label="Como funciona">
+            <li>Revisão de um contador</li>
+            <li>Você aprova cada ajuste</li>
+          </ul>
+          <p>O Fator R decide se o seu CNPJ paga 6% ou 15,5% na primeira faixa do Simples. Até o dia 5, o contador calcula o dos últimos 12 meses e projeta o do mês. Se ficar abaixo de 30%, você recebe o pró-labore sugerido com o custo de INSS e a economia estimada, e aprova pelo app ou pelo WhatsApp.</p>
         </div>
       </div>
     </section>
 
-    <!-- CONFIANÇA: só fatos verificáveis, sem logos ou depoimentos inventados -->
-    <section class="confianca" aria-label="Por que confiar">
+    <!-- 4. RECURSO CENTRAL: exportação de serviços -->
+    <section class="l-recurso l-recurso--centro" aria-labelledby="export-titulo">
       <div class="container">
-        <ul>
-          <li>
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span><strong>Contador registrado no CRC</strong>Escritório parceiro responsável técnico pela sua contabilidade.</span>
-          </li>
-          <li>
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-            <span><strong>Preço publicado</strong>Planos e serviços extras com valor na página.</span>
-          </li>
-          <li>
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
-            <span><strong>Sem fidelidade</strong>Cancele quando quiser, sem multa.</span>
-          </li>
-          <li>
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
-            <span><strong>Contas abertas</strong>Simulações com as alíquotas da LC 123/2006.</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PARA QUEM -->
-    <section class="secao" aria-labelledby="para-quem-titulo">
-      <div class="container">
-        <h2 id="para-quem-titulo" class="secao__titulo">Feito para duas profissões, não para todo mundo</h2>
-        <p class="secao__intro">Contador genérico atende padaria, loja e consultório do mesmo jeito. A gente conhece as regras que mais pesam no seu bolso.</p>
-        <div class="grade grade--2">
-          <article class="cartao">
-            <span class="icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v3a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="12" r="2"/></svg>
-            </span>
-            <h3>Médicos PJ</h3>
-            <p>Plantões, consultas e procedimentos faturados pelo seu CNPJ. Pró-labore ajustado para manter o Fator R acima de 28% e notas emitidas pelo Emissor Nacional.</p>
-          </article>
-          <article class="cartao">
-            <span class="icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
-            </span>
-            <h3>Programadores PJ</h3>
-            <p>Contratante no Brasil ou no exterior. Para quem recebe de fora, a receita de exportação é separada no PGDAS-D e deixa de pagar PIS, Cofins e ISS.</p>
-          </article>
+        <span class="l-icone" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></span>
+        <h2 id="export-titulo" class="l-titulo">Recebe de fora? A receita vai no lugar certo.</h2>
+        <p class="l-sub">Para programadores com contratante no exterior, a receita de exportação é separada no PGDAS-D.</p>
+        <div class="exportacao" data-anima>
+          <figure class="exportacao__contrato app-card" role="img" aria-label="Prévia de um recebimento do exterior: contrato em nome do CNPJ, câmbio formal na conta PJ e nota com tomador estrangeiro.">
+            <div aria-hidden="true">
+              <p class="app-rotulo">Recebimento · 05/11</p>
+              <p class="pilha__valor">US$ 3.900 <small>→ R$ 20.000</small></p>
+              <ul class="exportacao__checks">
+                <li>Contrato em nome do CNPJ</li>
+                <li>Câmbio formal na conta PJ</li>
+                <li>Nota com tomador estrangeiro</li>
+              </ul>
+            </div>
+          </figure>
+          <figure class="exportacao__tributos" role="img" aria-label="Prévia do DAS: Cofins, PIS e ISS saem do cálculo da receita de exportação; IRPJ, CSLL e CPP continuam. O DAS cai de R$ 1.460 para cerca de R$ 743.">
+            <div aria-hidden="true">
+              <div class="tributos">
+                <span class="tributo tributo--sai">Cofins</span>
+                <span class="tributo tributo--sai">PIS</span>
+                <span class="tributo tributo--sai">ISS</span>
+                <span class="tributo">IRPJ</span>
+                <span class="tributo">CSLL</span>
+                <span class="tributo">CPP</span>
+              </div>
+              <div class="das">
+                <span class="das__antes">R$ 1.460</span>
+                <span class="das__depois">≈ R$ 743</span>
+                <span class="chip chip--ok das__selo">Segregado no PGDAS-D</span>
+              </div>
+            </div>
+          </figure>
+        </div>
+        <div class="l-duas-notas">
+          <p><strong>Cada contrato é aprovado na entrada.</strong> Até 2 contratantes estrangeiros, trabalho usado lá fora e câmbio formal.</p>
+          <p><strong>O DAS deixa de ter PIS, Cofins e ISS</strong> sobre essa receita. IRPJ, CSLL e CPP continuam.</p>
         </div>
       </div>
     </section>
 
-    <!-- COMO FUNCIONA -->
-    <section class="secao secao--suave" aria-labelledby="como-titulo">
-      <div class="container">
-        <h2 id="como-titulo" class="secao__titulo">Como o Fator R é acompanhado todo mês</h2>
-        <ol class="passos">
-          <li>
-            <h3>Cálculo até o dia 5</h3>
-            <p>O contador calcula o seu Fator R dos últimos 12 meses e projeta o do mês corrente.</p>
-          </li>
-          <li>
-            <h3>Alerta com números</h3>
-            <p>Se a projeção ficar abaixo de 30% (folga sobre o limite de 28%), você recebe o pró-labore sugerido e o custo de INSS.</p>
-          </li>
-          <li>
-            <h3>Você decide</h3>
-            <p>Aprova pelo app ou pelo WhatsApp. A decisão de mudar o pró-labore é sempre sua; o contador lança no eSocial.</p>
-          </li>
-          <li>
-            <h3>Resumo em reais</h3>
-            <p>Todo mês você vê quanto economizou ficando no Anexo III, e no plano Internacional, com a exportação.</p>
-          </li>
-        </ol>
+    <!-- 5. RECURSO: WhatsApp -->
+    <section class="l-recurso" aria-labelledby="whats-titulo">
+      <div class="container l-recurso__grade l-recurso__grade--invertida">
+        <div class="l-recurso__texto">
+          <span class="l-icone" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
+          <h2 id="whats-titulo" class="l-titulo">Um contador no WhatsApp.</h2>
+          <ul class="l-pilulas" aria-label="Atendimento">
+            <li>Primeira resposta em 1 dia útil</li>
+            <li>Já incluso no plano</li>
+          </ul>
+          <p>Nota fiscal, pró-labore, dúvida sobre o DAS: você pergunta para quem conhece a sua profissão, sem abrir chamado e sem ficar esperando ser transferido.</p>
+        </div>
+        <figure class="conversa" data-anima role="img" aria-label="Prévia de conversa: a cliente pede uma nota de R$ 15.000 para a Clínica São Lucas e, na manhã seguinte, recebe a nota emitida e o lembrete de que o DAS vence no dia 20.">
+          <div class="conversa__tela" aria-hidden="true">
+            <p class="conversa__dia">Ontem</p>
+            <p class="bolha bolha--eu">Preciso emitir a nota de novembro para a Clínica São Lucas, R$ 15.000.<time>18:42</time></p>
+            <p class="conversa__dia">Hoje</p>
+            <p class="bolha bolha--digitando"><i></i><i></i><i></i></p>
+            <p class="bolha bolha--contador">Bom dia! Nota emitida pelo Emissor Nacional, o PDF está no seu painel.<time>09:15</time></p>
+            <p class="bolha bolha--contador">O DAS de novembro vence dia 20. Já deixei a guia pronta.<time>09:16</time></p>
+          </div>
+        </figure>
       </div>
     </section>
 
-    <!-- CALCULADORA -->
+    <!-- 6. CALCULADORA (o único cartão escuro de conteúdo: a resposta principal) -->
     <section class="secao" id="calculadora" aria-labelledby="calc-titulo">
       <div class="container">
-        <h2 id="calc-titulo" class="secao__titulo">Quanto você pode economizar?</h2>
+        <h2 id="calc-titulo" class="l-titulo">Quanto você pode economizar?</h2>
         <p class="secao__intro">Uma conta rápida com as alíquotas do Simples Nacional. Leva 10 segundos e nenhum dado sai do seu navegador.</p>
 
         <div class="calc">
@@ -230,10 +325,47 @@
       </div>
     </section>
 
-    <!-- PLANOS -->
+    <!-- 7. BENTO: recursos incluídos -->
+    <section class="secao" aria-labelledby="bento-titulo">
+      <div class="container">
+        <h2 id="bento-titulo" class="l-titulo l-titulo--centro">Tudo que o seu CNPJ precisa, num lugar só.</h2>
+        <div class="bento" data-anima>
+          <article class="bento__item">
+            <div class="bento__mini" aria-hidden="true">
+              <div class="mini-cert"><span class="mini-cert__icone">A1</span><div><p class="app-rotulo">Certificado digital</p><p class="app-texto">Válido até 03/2027</p></div><span class="chip chip--ok">Ativo</span></div>
+            </div>
+            <h3>Certificado A1 incluso</h3>
+            <p>Sem comprar à parte e sem lembrar de renovar.</p>
+          </article>
+          <article class="bento__item">
+            <div class="bento__mini" aria-hidden="true">
+              <div class="mini-nota"><p class="app-rotulo">NFS-e · Emissor Nacional</p><p class="mini-nota__valor">R$ 15.000,00</p><span class="mini-nota__carimbo">Emitida</span></div>
+            </div>
+            <h3>Notas pelo Emissor Nacional</h3>
+            <p>Peça pelo WhatsApp ou emita você mesmo, com o tomador já cadastrado.</p>
+          </article>
+          <article class="bento__item">
+            <div class="bento__mini" aria-hidden="true">
+              <div class="mini-barras"><span><i class="mb-1"></i><b>Jun</b></span><span><i class="mb-2"></i><b>Jul</b></span><span><i class="mb-3"></i><b>Ago</b></span><span><i class="mb-4"></i><b>Set</b></span><span><i class="mb-5"></i><b>Out</b></span><span><i class="mb-6"></i><b>Nov</b></span></div>
+            </div>
+            <h3>Resumo mensal em reais</h3>
+            <p>Quanto você pagou, quanto deixou de pagar e o que vence.</p>
+          </article>
+          <article class="bento__item">
+            <div class="bento__mini" aria-hidden="true">
+              <div class="mini-toggle"><span class="app-texto">Cancelar quando quiser</span><span class="mini-toggle__chave"><i></i></span><span class="chip chip--ok">Sem multa</span></div>
+            </div>
+            <h3>Sem fidelidade</h3>
+            <p>Cancele quando quiser, sem multa. Extras com preço publicado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. PLANOS -->
     <section class="secao secao--suave" id="planos" aria-labelledby="planos-titulo">
       <div class="container">
-        <h2 id="planos-titulo" class="secao__titulo">Dois planos, preço publicado, sem fidelidade</h2>
+        <h2 id="planos-titulo" class="l-titulo">Dois planos, preço publicado, sem fidelidade</h2>
         <div class="grade grade--2 planos">
           <article class="plano cartao" aria-labelledby="plano-essencial">
             <h3 id="plano-essencial">PJ Essencial</h3>
@@ -274,24 +406,13 @@
       </div>
     </section>
 
-    <!-- DIFERENCIAL -->
-    <section class="secao" aria-labelledby="dif-titulo">
-      <div class="container">
-        <h2 id="dif-titulo" class="secao__titulo">O que muda em relação a uma contabilidade online genérica</h2>
-        <div class="grade grade--3">
-          <article class="cartao">
-            <h3>Contador que conhece a sua profissão</h3>
-            <p>Fator R, plantões, contratos com empresas de fora: são o dia a dia aqui, não exceção.</p>
-          </article>
-          <article class="cartao">
-            <h3>Economia mostrada em reais</h3>
-            <p>Todo mês você recebe quanto deixou de pagar. Nada de relatório que ninguém lê.</p>
-          </article>
-          <article class="cartao">
-            <h3>WhatsApp e certificado no plano de entrada</h3>
-            <p>O que em outros lugares só vem no plano intermediário já está nos R$ 179.</p>
-          </article>
-        </div>
+    <!-- 9. MISSÃO -->
+    <section class="l-missao" aria-labelledby="missao-titulo">
+      <div class="container container--estreito">
+        <p class="sobretitulo">Nosso objetivo</p>
+        <h2 id="missao-titulo" class="l-titulo-gigante">Separar imposto de ansiedade.</h2>
+        <p>Médicos e programadores trabalham muito para ganhar o que ganham. Ninguém deveria pagar 15,5% quando a lei permite 6% só porque ninguém olhou o Fator R naquele mês. A gente olha todo mês, mostra a conta em reais e deixa a decisão com você.</p>
+        <a class="botao botao--secundario" href="#perguntas">Ler as perguntas frequentes</a>
       </div>
     </section>
 
@@ -403,7 +524,7 @@
     <!-- PERGUNTAS -->
     <section class="secao" id="perguntas" aria-labelledby="perguntas-titulo">
       <div class="container container--estreito">
-        <h2 id="perguntas-titulo" class="secao__titulo">Perguntas frequentes</h2>
+        <h2 id="perguntas-titulo" class="l-titulo">Perguntas frequentes</h2>
         <div class="perguntas">
           <details>
             <summary>O que é o Fator R?</summary>
@@ -438,15 +559,40 @@
     </section>
   </main>
 
-  <footer class="rodape">
-    <div class="container">
-      <p><strong>Contábil PJ</strong> · Contabilidade digital para médicos PJ e programadores PJ.</p>
-      <p class="nota">
-        Valores e economias nesta página são simulações ilustrativas com as alíquotas do Simples Nacional (LC 123/2006) e não constituem apuração fiscal nem garantia de resultado.
-        Os serviços contábeis são prestados por escritório parceiro registrado no CRC.
-      </p>
-      <p class="nota"><a href="privacidade.html">Política de privacidade</a></p>
+  <!-- RODAPÉ EM BLOCOS -->
+  <footer class="l-rodape">
+    <div class="container l-rodape__bento">
+      <a class="l-rodape__cta" href="#pre-venda">
+        <span class="sobretitulo">Primeira turma</span>
+        <span class="l-rodape__cta-titulo">Entrar na lista de pré-venda</span>
+        <span class="l-rodape__seta" aria-hidden="true">→</span>
+      </a>
+      <div class="l-rodape__bloco l-rodape__privacidade">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <p class="l-rodape__titulo">Seus dados ficam com você.</p>
+        <p class="nota">Sem cookies, sem pixels de anúncio. A calculadora roda no seu navegador.</p>
+        <a href="privacidade.html">Política de privacidade</a>
+      </div>
+      <nav class="l-rodape__bloco" aria-label="Rodapé">
+        <ul class="l-rodape__links">
+          <li><a href="#fator-r">Fator R</a></li>
+          <li><a href="#calculadora">Calculadora</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#pre-venda">Pré-venda</a></li>
+          <li><a href="#perguntas">Perguntas frequentes</a></li>
+          <li><a href="privacidade.html">Privacidade</a></li>
+        </ul>
+      </nav>
+      <div class="l-rodape__bloco l-rodape__legal">
+        <p><strong>Contábil PJ</strong> · contabilidade digital para médicos PJ e programadores PJ.</p>
+        <p class="nota">Serviços contábeis prestados por escritório parceiro registrado no CRC. Valores e economias são simulações ilustrativas com as alíquotas do Simples Nacional (LC 123/2006), não apuração fiscal nem garantia de resultado. Telas do app são prévias ilustrativas.</p>
+      </div>
     </div>
   </footer>
+
+  <button type="button" class="l-pausar" id="pausar-animacoes" aria-pressed="false">
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+    <span>Pausar animações</span>
+  </button>
 </body>
 </html>
