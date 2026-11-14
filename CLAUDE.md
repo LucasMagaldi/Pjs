@@ -144,18 +144,24 @@ Relatórios em pt-BR. As regras deste arquivo prevalecem sobre as recomendaçõe
 
 ```
 src/
-  index.html            landing page
+  index.html            landing page (estilo Piccow, estrutura de página de produto)
+  portal.html           versão portal corporativo escuro
   privacidade.html      política de privacidade (rascunho)
   assets/
     calculadora.js      regras tributárias puras (Simples Nacional), sem DOM
     app.js              liga a calculadora e o formulário à página
+    animacoes.js        prévias animadas do app (entrada em cena, Fator R, pausa)
     config.js           LEAD_ENDPOINT (destino do cadastro)
-    styles.css          tokens e estilos
+    styles.css          base, tokens semânticos (--cor-*) e componentes
+    piccow.css          tokens e componentes do Piccow (data-estilo="piccow")
+    layout.css          seções da landing, molduras de celular/navegador e animações
+    portal.css          tema do portal escuro
+    fonts/              Figtree e Geist (OFL), servidas localmente
 scripts/serve.js        servidor estático de desenvolvimento
 tests/                  testes da calculadora
 ```
 
-Regras de dependência: `calculadora.js` não acessa DOM nem rede. Valores e textos tributários seguem a revisão v1.1 e nunca prometem "garantia" de economia.
+Regras de dependência: `calculadora.js` não acessa DOM nem rede. Telas do app na landing são prévias em HTML/CSS, sempre com o rótulo "prévia ilustrativa"; animações respeitam `prefers-reduced-motion` e o botão "Pausar animações" (WCAG 2.2.2). Valores e textos tributários seguem a revisão v1.1 e nunca prometem "garantia" de economia.
 
 ## 7. Segurança e privacidade
 
