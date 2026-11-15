@@ -155,6 +155,7 @@ src/
     styles.css          base, tokens semânticos (--cor-*) e componentes
     piccow.css          tokens e componentes do Piccow (data-estilo="piccow")
     layout.css          seções da landing, molduras de celular/navegador e animações
+    tema-navy-rosa.css  tema Navy + Hot Pink (data-tema="navy-rosa"); só redefine tokens
     portal.css          tema do portal escuro
     fonts/              Figtree e Geist (OFL), servidas localmente
 scripts/serve.js        servidor estático de desenvolvimento

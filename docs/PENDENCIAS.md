@@ -24,6 +24,7 @@ Base: *Revisão de produto v1.1 — Contabilidade digital para médicos PJ e pro
 - [ ] Definir a marca e decidir se a paleta segue o verde-petróleo atual ou o azul-marinho + verde sugerido pelo `ui-ux-pro-max` (ver `docs/auditorias/`).
 - [ ] **Escolher a página principal:** landing clara (`index.html`) ou portal escuro (`portal.html`). As duas compartilham calculadora e formulário; a outra pode ser removida ou usada em teste A/B.
 - [ ] **Telas do app na landing são prévias em HTML/CSS.** Trocar por capturas reais (ou vídeos curtos) quando o app existir, mantendo `role="img"` com descrição e o botão de pausa.
+- [ ] **Tema Navy + Rosa aplicado na landing** (`data-tema="navy-rosa"`). Confirmar se é a paleta da marca; para voltar ao verde do Piccow, basta tirar o atributo do `<html>`.
 - [ ] Analytics ou pixel só depois de banner de consentimento (LGPD).
 
 ## Próximos passos da revisão (dias 1 a 15)
