@@ -1,0 +1,84 @@
+/*
+ * Tema Navy + Rosa (paleta: Navy #0F1B3D, White #FFFFFF, Hot Pink #FF3D8B).
+ * Carregado depois de piccow.css e layout.css; ativo com <html data-tema="navy-rosa">.
+ * Só redefine tokens: estrutura e componentes continuam os do estilo Piccow.
+ *
+ * Como cada cor é usada (contrastes medidos):
+ * - Navy é o texto principal (16,9:1 no branco) e as superfícies escuras
+ *   (navegação e o cartão da resposta principal).
+ * - Hot Pink #FF3D8B é a ação e o destaque: botão rosa com texto navy (5,1:1),
+ *   palavra de destaque só em títulos grandes (3,1:1 no fundo, mínimo 3:1),
+ *   foco e ícones (3,1:1, mínimo 3:1 para elementos gráficos).
+ *   Texto branco no rosa daria 3,3:1, abaixo de 4,5:1, por isso o texto é navy.
+ * - Rosa em texto pequeno usa a tinta #B5175A (6,0:1 no fundo, 5,6:1 no rosa-claro).
+ * - No navy, texto pequeno em rosa usa #FF75AD (4,8:1 no ponto mais claro do degradê).
+ * - Neutros puxados para o navy; borda de campo #717B98 (3,9:1, mínimo 3:1).
+ * - Verde de "ok" e âmbar de "atenção" continuam: são cores de estado, não da marca.
+ */
+:root[data-tema="navy-rosa"] {
+  /* primitivos da paleta */
+  --navy-900: #0f1b3d;
+  --navy-800: #16244f;
+  --navy-700: #1c2b5c;
+  --rosa-500: #ff3d8b;
+  --rosa-400: #ff75ad;
+  --rosa-tinta: #b5175a;
+  --rosa-claro: #ffe8f1;
+  --rosa-linha: #f7b3cd;
+  --branco: #ffffff;
+
+  /* superfícies e neutros com viés navy */
+  --color-canvas-white: #f7f8fc;
+  --color-paper-mist: #eef0f7;
+  --color-card: var(--branco);
+  --color-app: #f4f5fa;
+  --color-ash: #dce0ec;
+  --color-smoke: #c8cedf;
+  --color-pebble: #a9b1c8;
+  --color-outline: #a9b1c8;
+  --color-campo: #717b98;
+
+  /* texto */
+  --color-midnight-ink: var(--navy-900);
+  --color-charcoal: var(--navy-900);
+  --color-graphite: #1a2850;
+  --color-slate: #2a3963;
+  --color-steel: #4a5578;
+  --color-fog: #5b6585;
+  --color-silver: #8c94ad;
+
+  /* marca e ação */
+  --color-electric-blue: var(--rosa-500);
+  --color-primary-action-fill: var(--rosa-500);
+  --color-deep-sapphire: var(--rosa-400);
+  --color-sobre-acao: var(--navy-900);
+  --color-eyebrow: var(--rosa-tinta);
+  --color-realce-suave: var(--rosa-claro);
+  --color-realce-linha: var(--rosa-linha);
+  --color-realce-tinta: var(--rosa-tinta);
+
+  /* superfícies escuras */
+  --color-nav-de: var(--navy-900);
+  --color-nav-ate: var(--navy-800);
+  --color-escuro-de: var(--navy-900);
+  --color-escuro-ate: var(--navy-700);
+  --color-sobre-escuro: var(--branco);
+  --color-sobre-escuro-suave: #c5cbe0;
+  --color-destaque-escuro: var(--rosa-400);
+  --rgb-destaque-escuro: 255 61 139;
+  --rgb-sombra: 15 27 61;
+  --rgb-sombra-escura: 15 27 61;
+
+  --shadow-ring: rgba(15, 27, 61, 0.1) 0px 12px 32px -12px;
+  --shadow-glow: rgba(255, 61, 139, 0.3) 0px 16px 40px -16px;
+
+  /* semânticos da landing que não passam pelos tokens acima */
+  --cor-marca-suave: var(--rosa-claro);
+  --cor-link: var(--rosa-tinta);
+  --cor-link-hover: var(--navy-900);
+  --cor-faixa-link: var(--rosa-tinta);
+  --l-celular-borda: var(--navy-900);
+}
+
+/* botão secundário: contorno navy no hover, para ligar com o texto */
+[data-tema="navy-rosa"] .botao--secundario:hover { border-color: var(--color-charcoal); }

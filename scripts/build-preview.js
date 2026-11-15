@@ -33,7 +33,7 @@ async function cssComFontes(arquivo) {
 const AJUSTES_HOST = `
 /* ---- ajustes da prévia no host (áreas seguras do celular) ---- */
 .topo { top: env(safe-area-inset-top, 0px); }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: #0e2c23; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--color-nav-de); }
 .l-pausar { left: calc(16px + env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
 `;
 
@@ -43,11 +43,13 @@ async function main() {
 
   // CSS da landing, na mesma ordem dos <link> do index.html
   const partes = [];
-  for (const arquivo of ['assets/styles.css', 'assets/piccow.css', 'assets/layout.css']) {
+  for (const arquivo of ['assets/styles.css', 'assets/piccow.css', 'assets/layout.css', 'assets/tema-navy-rosa.css']) {
     partes.push(`/* ${arquivo} */\n${await cssComFontes(arquivo)}`);
   }
   const css = (partes.join('\n') + AJUSTES_HOST)
     .replaceAll(':root[data-estilo="piccow"]', ':root')
+    .replaceAll(':root[data-tema="navy-rosa"]', ':root')
+    .replaceAll('[data-tema="navy-rosa"] ', ':root ')
     .replaceAll('[data-estilo="piccow"] ', ':root ');
 
   const html = await ler('index.html');
