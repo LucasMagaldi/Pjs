@@ -54,6 +54,22 @@
   --color-amber-wash: #fdf1dc;
   --color-amber-line: #f0cc8a;
   --color-amber-ink: #8a5508;
+  /* realce (seleção, ícones, selo) e superfícies escuras (.nav-dark, .hero-dark) */
+  --color-realce-suave: var(--color-soft-mint);
+  --color-realce-linha: var(--color-mint-line);
+  --color-realce-tinta: var(--color-green-ink);
+  --color-eyebrow: var(--color-green-ink);
+  --color-sobre-acao: #ffffff;
+  --color-nav-de: #0e2c23;
+  --color-nav-ate: #123a2e;
+  --color-escuro-de: #0f3b2e;
+  --color-escuro-ate: #145c3b;
+  --color-sobre-escuro: #ffffff;
+  --color-sobre-escuro-suave: #c9ddd2;
+  --color-destaque-escuro: #9ff0c2;
+  --rgb-destaque-escuro: 159 240 194;
+  --rgb-sombra: 16 38 28;
+  --rgb-sombra-escura: 11 59 44;
 
   --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-display: "Figtree", "Geist", ui-sans-serif, system-ui, sans-serif;
@@ -91,7 +107,7 @@
   --cor-marca: var(--color-primary-action-fill);
   --cor-marca-hover: var(--color-deep-sapphire);
   --cor-marca-suave: var(--color-soft-mint);
-  --cor-sobre-marca: #ffffff;
+  --cor-sobre-marca: var(--color-sobre-acao);
   --cor-positivo: var(--color-green-ink);
   --cor-aviso-fundo: var(--color-amber-wash);
   --cor-aviso-texto: var(--color-amber-ink);
@@ -126,24 +142,24 @@
 [data-estilo="piccow"] .accent { color: var(--color-electric-blue); }
 /* .eyebrow do Piccow */
 [data-estilo="piccow"] .sobretitulo {
-  color: var(--color-green-ink); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--color-eyebrow); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
 }
 [data-estilo="piccow"] .hero { background: transparent; }
 
 /* ---------- Navegação escura (.nav-dark, opção B) ---------- */
 .nav-dark {
-  --cor-texto: #ffffff;
-  --cor-texto-suave: #c9ddd2;
-  background: linear-gradient(180deg, #0e2c23 0%, #123a2e 100%);
+  --cor-texto: var(--color-sobre-escuro);
+  --cor-texto-suave: var(--color-sobre-escuro-suave);
+  background: linear-gradient(180deg, var(--color-nav-de) 0%, var(--color-nav-ate) 100%);
   border-bottom-color: transparent;
   color: var(--cor-texto);
 }
 [data-estilo="piccow"] .topo.nav-dark { backdrop-filter: none; }
-.nav-dark .marca { color: #ffffff; }
-.nav-dark .marca__icone { background: #9ff0c2; color: #0e2c23; }
-.nav-dark .menu a { color: #c9ddd2; }
-.nav-dark .menu a:hover { color: #ffffff; }
-.nav-dark :focus-visible { outline-color: #9ff0c2; }
+.nav-dark .marca { color: var(--color-sobre-escuro); }
+.nav-dark .marca__icone { background: var(--color-destaque-escuro); color: var(--color-nav-de); }
+.nav-dark .menu a { color: var(--color-sobre-escuro-suave); }
+.nav-dark .menu a:hover { color: var(--color-sobre-escuro); }
+.nav-dark :focus-visible { outline-color: var(--color-destaque-escuro); }
 
 /* ---------- Botões (ui.tsx: primary / secondary) ---------- */
 [data-estilo="piccow"] .botao {
@@ -151,12 +167,12 @@
 }
 [data-estilo="piccow"] .botao--pequeno { min-height: 40px; padding: 8px 14px; font-size: var(--text-body); }
 [data-estilo="piccow"] .botao--secundario {
-  background: #ffffff; border: 1px solid var(--color-outline); color: var(--color-slate);
+  background: var(--color-card); border: 1px solid var(--color-outline); color: var(--color-slate);
 }
 [data-estilo="piccow"] .botao--secundario:hover { background: var(--color-paper-mist); color: var(--color-charcoal); }
 /* botão principal sobre fundo escuro: contorno claro para não sumir (1,5:1 sem ele) */
 .nav-dark .botao:not(.botao--secundario),
-.hero-dark .botao:not(.botao--secundario) { box-shadow: 0 0 0 1px rgb(255 255 255 / 0.35); }
+.hero-dark .botao:not(.botao--secundario) { box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-sobre-escuro) 35%, transparent); }
 
 /* ---------- Cards e campos (Panel / Field / inputClass) ---------- */
 [data-estilo="piccow"] .cartao { border-radius: var(--radius-cards); border: 1px solid var(--color-ash); box-shadow: var(--shadow-subtle); }
@@ -164,21 +180,21 @@
 [data-estilo="piccow"] input[type="text"],
 [data-estilo="piccow"] input[type="email"],
 [data-estilo="piccow"] input[type="tel"],
-[data-estilo="piccow"] select { border-radius: var(--radius-inputs); border-width: 1px; background: #ffffff; min-height: 46px; }
+[data-estilo="piccow"] select { border-radius: var(--radius-inputs); border-width: 1px; background: var(--color-card); min-height: 46px; }
 [data-estilo="piccow"] input:focus-visible,
 [data-estilo="piccow"] select:focus-visible { border-color: var(--color-electric-blue); }
 [data-estilo="piccow"] .campo label,
 [data-estilo="piccow"] .campo legend { font-size: 13px; font-weight: 500; color: var(--cor-texto-suave); }
 [data-estilo="piccow"] .campo .opcao,
-[data-estilo="piccow"] .opcao { border-radius: var(--radius-inputs); border-width: 1px; background: #ffffff; }
-[data-estilo="piccow"] .opcao:has(input:checked) { background: var(--color-soft-mint); border-color: var(--color-primary-action-fill); }
+[data-estilo="piccow"] .opcao { border-radius: var(--radius-inputs); border-width: 1px; background: var(--color-card); }
+[data-estilo="piccow"] .opcao:has(input:checked) { background: var(--color-realce-suave); border-color: var(--color-realce-tinta); }
 [data-estilo="piccow"] .campo .opcao--consentimento { background: transparent; }
 [data-estilo="piccow"] .ajuda { font-size: 13px; }
 [data-estilo="piccow"] .erro { font-size: 13px; font-weight: 500; }
 
 /* ---------- Badge (selo do plano) e avisos (Notice) ---------- */
 [data-estilo="piccow"] .selo {
-  border: 1px solid var(--color-mint-line); background: var(--color-soft-mint); color: var(--color-green-ink);
+  border: 1px solid var(--color-realce-linha); background: var(--color-realce-suave); color: var(--color-realce-tinta);
   font-size: var(--text-caption); font-weight: 600; letter-spacing: 0; padding: 2px 10px;
 }
 [data-estilo="piccow"] .aviso { border: 1px solid var(--color-amber-line); border-radius: var(--radius-cards); padding: 14px 16px; }
@@ -186,38 +202,38 @@
 [data-estilo="piccow"] .plano__preco { font-family: var(--font-display); }
 [data-estilo="piccow"] .icone,
 [data-estilo="piccow"] .passos li::before { border-radius: 12px; }
-[data-estilo="piccow"] .confianca { background: #ffffff; }
+[data-estilo="piccow"] .confianca { background: var(--color-card); }
 [data-estilo="piccow"] .confianca svg { color: var(--color-electric-blue); }
 [data-estilo="piccow"] .perguntas summary { font-family: var(--font-display); font-weight: 600; }
 [data-estilo="piccow"] .rodape { background: var(--color-paper-mist); }
 
 /* ---------- Cartão escuro (.hero-dark): um por tela, só a resposta principal ---------- */
 .hero-dark {
-  --cor-texto: #ffffff;
-  --cor-texto-suave: #c9ddd2;
-  --cor-texto-nota: #c9ddd2;
-  --cor-borda: rgb(255 255 255 / 0.14);
-  --cor-positivo: #9ff0c2;
+  --cor-texto: var(--color-sobre-escuro);
+  --cor-texto-suave: var(--color-sobre-escuro-suave);
+  --cor-texto-nota: var(--color-sobre-escuro-suave);
+  --cor-borda: color-mix(in srgb, var(--color-sobre-escuro) 14%, transparent);
+  --cor-positivo: var(--color-destaque-escuro);
   position: relative; overflow: hidden; color: var(--cor-texto);
   background:
-    radial-gradient(28rem 14rem at 0% 0%, rgb(159 240 194 / 0.18), transparent 70%),
-    linear-gradient(135deg, #0f3b2e 0%, #145c3b 100%);
+    radial-gradient(28rem 14rem at 0% 0%, rgb(var(--rgb-destaque-escuro) / 0.18), transparent 70%),
+    linear-gradient(135deg, var(--color-escuro-de) 0%, var(--color-escuro-ate) 100%);
   border: 0;
-  box-shadow: 0 18px 40px -20px rgb(11 59 44 / 0.7);
+  box-shadow: 0 18px 40px -20px rgb(var(--rgb-sombra-escura) / 0.7);
 }
-[data-estilo="piccow"] .cartao.hero-dark { border: 0; box-shadow: 0 18px 40px -20px rgb(11 59 44 / 0.7); }
+[data-estilo="piccow"] .cartao.hero-dark { border: 0; box-shadow: 0 18px 40px -20px rgb(var(--rgb-sombra-escura) / 0.7); }
 /* anel decorativo no canto */
 .hero-dark::after {
   content: ""; position: absolute; top: -90px; right: -90px; width: 220px; height: 220px; border-radius: 50%;
-  border: 28px solid rgb(159 240 194 / 0.08); pointer-events: none;
+  border: 28px solid rgb(var(--rgb-destaque-escuro) / 0.08); pointer-events: none;
 }
 .hero-dark > * { position: relative; z-index: 1; }
-.hero-dark .tabela__total td:last-child { color: #9ff0c2; }
+.hero-dark .tabela__total td:last-child { color: var(--color-destaque-escuro); }
 /* superfícies claras dentro do cartão escuro voltam ao tema claro */
 .hero-dark .aviso { --cor-texto: var(--color-charcoal); }
 .hero-dark .aviso strong { color: var(--color-amber-ink); }
-.hero-dark .nota { color: #c9ddd2; }
-.hero-dark :focus-visible { outline-color: #9ff0c2; }
+.hero-dark .nota { color: var(--color-sobre-escuro-suave); }
+.hero-dark :focus-visible { outline-color: var(--color-destaque-escuro); }
 
 /* rótulo do campo é 13px (ui.tsx), mas o texto das opções segue no tamanho do corpo */
 [data-estilo="piccow"] .campo .opcao { font-size: 1rem; color: var(--cor-texto); }

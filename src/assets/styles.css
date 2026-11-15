@@ -39,6 +39,8 @@
   --cor-faixa-texto: #eef7f5;
   --cor-faixa-texto-suave: #d6e9e6;
   --cor-faixa-link: #bfe9e3;
+  --cor-link: var(--cor-marca);
+  --cor-link-hover: var(--cor-marca-hover);
 
   --fonte: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --raio: 14px;
@@ -91,8 +93,8 @@ h1 { font-size: clamp(2rem, 4.6vw, 3.1rem); }
 h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
 h3 { font-size: 1.2rem; }
 p { margin: 0 0 1em; }
-a { color: var(--cor-marca); text-underline-offset: 2px; }
-a:hover { color: var(--cor-marca-hover); }
+a { color: var(--cor-link); text-underline-offset: 2px; }
+a:hover { color: var(--cor-link-hover); }
 :focus-visible { outline: 3px solid var(--cor-foco); outline-offset: 2px; border-radius: 4px; }
 
 .sr-only {
@@ -312,7 +314,7 @@ input[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--co
 .lista-check--clara li::after { background-color: var(--cor-faixa-fundo); }
 .formulario { color: var(--cor-texto); }
 .formulario__nota { margin: 0 0 18px; }
-.formulario a { color: var(--cor-marca); }
+.formulario a { color: var(--cor-link); }
 .formulario__status { margin: 14px 0 0; font-weight: 600; }
 .formulario__status[data-tipo="sucesso"] { color: var(--cor-positivo); }
 .formulario__status[data-tipo="erro"] { color: var(--cor-erro); }
